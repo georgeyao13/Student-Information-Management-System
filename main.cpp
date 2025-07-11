@@ -31,7 +31,7 @@ int main()
 	while (getline(fin, line)) 
 	{
         lines.push_back(line);
-    }
+    	}
 	fin.close();
 	while (1)
 	{
