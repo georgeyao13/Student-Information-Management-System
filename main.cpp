@@ -123,9 +123,9 @@ void find()
 	cout << "id             姓名         年级         班级         学号         分数" << endl;
 	cout << "---------------------------------------------------------------------" << endl;
 	for (size_t i = 0; i < lines.size(); ++i) {
-        if (lines[i].find(keyword) != std::string::npos) {
-            cout << lines[i] << endl;
-        }
+            if (lines[i].find(keyword) != std::string::npos) {
+            	cout << lines[i] << endl;
+            }
     }
 }
 
