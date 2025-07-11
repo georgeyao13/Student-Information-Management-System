@@ -108,10 +108,10 @@ void show()
 	cout << "---------------------------------------------------------------------" << endl;
 	fin.open("student.txt");
 	std::string line;
-    while (getline(fin, line)) 
+    	while (getline(fin, line)) 
 	{
         cout << line << endl;
-    }
+    	}
     fin.close();
 }
 
