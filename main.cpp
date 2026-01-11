@@ -117,16 +117,40 @@ void show()
 
 void find()
 {
-	std::string keyword;
-	cout << "请输入关键字/词以搜索: ";
-	cin >> keyword;
-	cout << "id             姓名         年级         班级         学号         分数" << endl;
-	cout << "---------------------------------------------------------------------" << endl;
-	for (size_t i = 0; i < lines.size(); ++i) {
-            if (lines[i].find(keyword) != std::string::npos) {
-            	cout << lines[i] << endl;
-            }
+    std::string keyword;
+    cout << "请输入关键字/词以搜索: ";
+    // Read a full line and skip any leftover whitespace/newline from previous input
+    std::getline(cin >> std::ws, keyword);
+
+    if (keyword.empty()) {
+        cout << "输入为空，取消搜索。" << endl;
+        return;
     }
+
+    cout << "id             姓名         年级         班级         学号         分数" << endl;
+    cout << "---------------------------------------------------------------------" << endl;
+
+    fin.open("student.txt");
+    if (!fin.is_open()) {
+        cout << "无法打开 student.txt 文件。" << endl;
+        return;
+    }
+
+    std::string line;
+    bool found = false;
+    while (getline(fin, line))
+    {
+        if (line.find(keyword) != std::string::npos) {
+            cout << line << endl;
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "未找到匹配项。" << endl;
+    }
+
+    fin.close();
 }
 
 void del()
